@@ -1,75 +1,51 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather Forecast</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Live weather and five-day forecast for any city.">
+  <title>Weather Forecast Website</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body data-theme="clear-day">
+  <div class="sky" aria-hidden="true"><span class="orb"></span><span class="cloud c1"></span><span class="cloud c2"></span></div>
 
-    <main class="weather-container">
-        <header class="header">
-            <h1>Weather Forecast</h1>
-            <p>Discover the weather in your city</p>
-        </header>
+  <main class="app">
+    <form class="search" id="searchForm" novalidate>
+      <label for="cityInput" class="sr-only">City name</label>
+      <input id="cityInput" type="search" placeholder="Search a city, e.g. Coimbatore" autocomplete="off">
+      <button id="searchBtn" type="submit">Search</button>
+    </form>
 
-        <section class="search-section">
-            <input
-                type="text"
-                id="cityInput"
-                placeholder="Enter city name..."
-                autocomplete="off"
-            >
-            <button id="searchBtn">Search</button>
-        </section>
+    <p id="message" class="message" role="alert" hidden></p>
+    <div id="loader" class="loader" hidden><span class="spinner"></span>Fetching weather…</div>
 
-        <p id="message"></p>
+    <section id="weather" class="weather" hidden>
+      <article class="current card">
+        <div>
+          <h1 id="cityName">—</h1>
+          <p id="localTime" class="muted"></p>
+          <p class="temp"><span id="temperature">--</span><sup>°C</sup></p>
+          <p id="condition" class="condition"></p>
+        </div>
+        <div id="currentIcon" class="big-icon" aria-hidden="true"></div>
+      </article>
 
-        <section class="weather-card" id="weatherCard">
-            <div class="location">
-                <h2 id="cityName">--</h2>
-                <p id="date">--</p>
-            </div>
+      <ul class="stats">
+        <li class="card"><span class="muted">Feels like</span><strong id="feelsLike">--</strong></li>
+        <li class="card"><span class="muted">Humidity</span><strong id="humidity">--</strong></li>
+        <li class="card"><span class="muted">Wind</span><strong id="wind">--</strong></li>
+        <li class="card"><span class="muted">Precipitation</span><strong id="precipitation">--</strong></li>
+      </ul>
 
-            <div class="current-weather">
-                <div class="weather-icon" id="weatherIcon">🌤️</div>
-                <div>
-                    <h1 id="temperature">--°C</h1>
-                    <p id="weatherCondition">--</p>
-                </div>
-            </div>
+      <h2>Next 5 days</h2>
+      <ul id="forecast" class="forecast"></ul>
+    </section>
+  </main>
 
-            <div class="weather-details">
-                <div class="detail">
-                    <span>Feels Like</span>
-                    <h3 id="feelsLike">--°C</h3>
-                </div>
-
-                <div class="detail">
-                    <span>Humidity</span>
-                    <h3 id="humidity">--%</h3>
-                </div>
-
-                <div class="detail">
-                    <span>Wind Speed</span>
-                    <h3 id="windSpeed">-- km/h</h3>
-                </div>
-            </div>
-        </section>
-
-        <section class="forecast-section">
-            <h2>5-Day Forecast</h2>
-            <div class="forecast-container" id="forecastContainer"></div>
-        </section>
-
-
-        <footer>
-            <p>Weather data powered by Open-Meteo</p>
-        </footer>
-    </main>
-
-    <script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>

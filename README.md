@@ -216,9 +216,12 @@ User-friendly error feedback for invalid city searches.
 
 ## 🌐 Live Deployment
 
-**Live Website:** [Weather Forecast Website](YOUR-LIVE-URL)
+**Live Website:** [Weather Forecast Website](https://weather-forecast-website-ebon.vercel.app/)
 
-The application is deployed and publicly accessible through its live hosting environment.
+**Deployment Platform:** Vercel
+
+The application is deployed on Vercel and publicly accessible through the live website.
+
 
 ## 🔗 API Integration
 
